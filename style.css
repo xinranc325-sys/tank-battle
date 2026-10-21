@@ -1,0 +1,164 @@
+:root {
+    --surface-0: #05070C;
+    --surface-1: #0A0D12;
+    --surface-2: #0F131C;
+    --surface-3: #161D2B;
+    --surface-4: #1E2636;
+    --accent: #38BDF8;
+    --accent-muted: #1E3A52;
+    --text-primary: #E8F0FF;
+    --text-secondary: #8B9FB8;
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-full: 999px;
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2rem;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, var(--surface-0) 0%, var(--surface-2) 100%);
+    color: var(--text-primary);
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: var(--spacing-md);
+}
+
+.game-container {
+    display: grid;
+    gap: var(--spacing-md);
+    width: 100%;
+    max-width: 800px;
+}
+
+.header {
+    background: var(--surface-3);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-md);
+    display: grid;
+    gap: var(--spacing-sm);
+}
+
+h1 {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    letter-spacing: -0.02em;
+    color: var(--accent);
+    text-align: center;
+}
+
+.score-board {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: var(--spacing-sm);
+    font-size: clamp(0.875rem, 2vw, 1rem);
+}
+
+.score, .lives, .level {
+    background: var(--surface-4);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--radius-full);
+    text-align: center;
+}
+
+.score span, .lives span, .level span {
+    color: var(--accent);
+    font-weight: 700;
+}
+
+#gameCanvas {
+    width: 100%;
+    background: var(--surface-1);
+    border: 2px solid var(--surface-4);
+    border-radius: var(--radius-md);
+    display: block;
+}
+
+.controls {
+    background: var(--surface-3);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-md);
+    display: grid;
+    gap: var(--spacing-md);
+}
+
+.info {
+    line-height: 1.6;
+    color: var(--text-secondary);
+}
+
+.info strong {
+    color: var(--text-primary);
+}
+
+.info p {
+    font-size: clamp(0.875rem, 2vw, 1rem);
+}
+
+.btn {
+    background: var(--accent);
+    color: var(--surface-0);
+    border: none;
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border-radius: var(--radius-full);
+    font-size: clamp(0.875rem, 2vw, 1rem);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn:hover:not(:disabled) {
+    background: #5ECCFF;
+    transform: translateY(-2px);
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(5, 7, 12, 0.9);
+    display: grid;
+    place-items: center;
+    z-index: 100;
+}
+
+.modal.hidden {
+    display: none;
+}
+
+.modal-content {
+    background: var(--surface-3);
+    border: 2px solid var(--accent);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-lg);
+    text-align: center;
+    display: grid;
+    gap: var(--spacing-md);
+    min-width: 300px;
+}
+
+.modal-content h2 {
+    color: var(--accent);
+    font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+.modal-content p {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+}
+
+#finalScore {
+    color: var(--accent);
+    font-weight: 700;
+}
